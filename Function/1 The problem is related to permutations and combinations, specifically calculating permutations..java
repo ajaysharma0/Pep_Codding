@@ -10,8 +10,10 @@ In this program:
 
 So, the problem is related to permutations and combinations, specifically calculating permutations.
 */
-import java.util.*;
 
+
+//code is  simple only in main function
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -26,6 +28,39 @@ public class Main {
             nmrfact *= i;
         }
         int nPr=nfact/nmrfact;
+        System.out.print(n+"P"+r+"="+nPr);
+    }
+}
+
+//code in different function except main----------------------------------
+import java.util.*;
+
+public class Main {
+    
+    //Fuction of n!
+    static int nfactorial(int n){
+        int nfact=1;
+        for(int i=1;i<=n;i++){
+            nfact=nfact*i;
+        }
+        return nfact;
+    }
+    
+    //Function of (n-r)!
+    static int nmrfactorial(int n,int r){
+        int nmrfact=1;
+        for(int i=1;i<=n-r;i++){
+            nmrfact *= i;
+        }
+        return nmrfact;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int r=sc.nextInt();
+        int result1=nfactorial(n); //Result of n! 
+        int result2=nmrfactorial(n,r);//Result of (n-r)!
+        int nPr=result1/result2;
         System.out.print(n+"P"+r+"="+nPr);
     }
 }
